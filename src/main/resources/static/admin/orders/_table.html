@@ -1,0 +1,171 @@
+
+<!-- Content Wrapper -->
+<div id="content-wrapper" class="d-flex flex-column"
+	style="padding-top: 20px">
+	<!-- Main Content -->
+	<div id="content">
+
+		<!-- Topbar -->
+		<!-- End of Topbar -->
+
+		<!-- Begin Page Content -->
+		<div class="container-fluid">
+			<div class="container">
+				<div class="row flex-lg-nowrap">
+					<div class="col">
+						<div class="row flex-lg-nowrap">
+							<div class="col mb-3">
+								<div class="e-panel card">
+									<div class="card-body">
+										<div class="card-title">
+											<h6 class="mr-2">
+												<span>Danh sách sản phẩm</span>
+											</h6>
+										</div>
+										<div class="e-table">
+											<div class="table-responsive table-lg mt-3">
+												<table class="table table-bordered">
+													<thead>
+														<tr>
+															<th >Mã hóa đơn</th>
+															<th>Ngày tạo</th>
+															<th >Username</th>
+															<th>Địa chỉ</th>
+															<th>Trạng thái</th>
+															<th>Thao tác</th>
+														
+														</tr>
+													</thead>
+													<tbody>
+														<tr ng-repeat="item in items">
+															<td class="text-nowrap align-middle"><span>{{item.id}}</span></td>
+																<td class="text-center align-middle">{{item.createdate}}</td>
+															<td class="text-center align-middle">{{item.account.username}}</td>
+															<td class="text-center align-middle">{{item.address}}</td>
+															<td class="text-center align-middle">{{item.status}}</td>
+															<td class="text-center align-middle">
+																<div class="btn-group align-top">
+
+																	<button ng-click="edit(item)"
+																		class="btn btn-sm btn-outline-secondary badge">Edit</button>
+																	<button onclick="showSwal('deleteproduct')"  ng-click="delete(item)"
+																		class="btn btn-sm btn-outline-secondary badge">
+																		<i class="fa fa-trash"></i>
+																	</button>
+																</div>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+											<div class="d-flex justify-content-center">
+												<ul class="pagination mt-3 mb-0">
+
+
+													<li class=" page-item">
+														<button ng-click="pager.first()" class="page-link"><i class="bi bi-chevron-bar-left"></i></button>
+													</li>
+
+													<li class=" page-item">
+														<button ng-click="pager.prev()" class="page-link"><i class="bi bi-chevron-left"></i></button>
+													</li>
+
+													<li class="page-item">
+														<button  class="page-link">{{pager.page +
+															1}} of{{pager.count}}</button>
+													</li>
+
+													<li class="page-item">
+														<button ng-click="pager.next()" class="page-link"><i class="bi bi-chevron-right"></i></button>
+													</li>
+
+													<li class="page-item">
+														<button ng-click="pager.last()" class="page-link"><i class="bi bi-chevron-bar-right"></i></button>
+													</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 													<li ng-click="first()" class="disabled page-item"><a -->
+<!-- 														href="#" class="page-link">‹</a></li> -->
+<!-- 													<li class="active page-item"><a href="#" -->
+<!-- 														class="page-link">1</a></li> -->
+
+<!-- 													<li class="page-item"><a href="#" class="page-link">{{pager.page -->
+<!-- 															+1}} of {{pager.count}} </a></li> -->
+
+<!-- 													<li ng-click="first()" class="page-item"><a href="#" -->
+<!-- 														class="page-link">»</a></li> -->
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top"> <i
+	class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+				<button class="close" type="button" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+			</div>
+			<div class="modal-body">Select "Logout" below if you are ready
+				to end your current session.</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				<a class="btn btn-primary" href="login.html">Logout</a>
+			</div>
+		</div>
+	</div>
+</div>
+

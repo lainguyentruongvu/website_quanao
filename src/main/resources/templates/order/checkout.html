@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/layout::dynamic(~{::title},~{::body})}">
+
+<head>
+<script src="../../../../../js/shopping-cart-app.js"></script>
+<meta charset="utf-8">
+<title>Thanh Toán</title>
+</head>
+<body ng-app="shopping-cart-app" ng-controller="shopping-cart-ctrl">
+
+	<!-- Breadcrumb Start -->
+	<div class="container-fluid">
+		<div class="row px-xl-5">
+			<div class="col-12">
+				<nav class="breadcrumb bg-light mb-30">
+					<a class="breadcrumb-item text-dark" href="#">Home</a> <a
+						class="breadcrumb-item text-dark" href="#">Shop</a> <span
+						class="breadcrumb-item active">Thanh Toán</span>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcrumb End -->
+
+	<!-- Checkout Start -->
+	<div class="container-fluid">
+		<div class="row px-xl-5">
+			<div class="col-lg-8">
+				<h5 class="section-title position-relative text-uppercase mb-3">
+					<span class="bg-secondary pr-3">Thông tin</span>
+				</h5>
+				<div class="bg-light p-30 mb-5">
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<label>Họ và tên</label>
+							<div class="form-control" id="username">[[${#request.remoteUser}]]</div>
+							<!-- 							<input class="form-control" type="text" value="[[${#request.remoteUser}]]"> -->
+						</div>
+						<div class="col-md-6 form-group">
+							<label>Order Date</label>
+							<div class="form-control">{{order.createdate | date
+								:'dd-MM-yyyy'}}</div>
+							<!-- 							<input class="form-control" type="text"> -->
+						</div>
+						<div class="col-md-6 form-group">
+							<label>Số Điện Thoại</label> <input  class="form-control"
+								type="text">
+						</div>
+						<div class="col-md-6 form-group">
+							<label>Địa Chỉ nhận hàng</label> <input ng-model="order.address"
+								class="form-control" type="text" id="address">
+						</div>
+						<!-- 						<div class="col-md-12 form-group"> -->
+						<!-- 							<label>Lời nhắn cho người bán</label> -->
+						<!-- 							<textarea class="form-control"></textarea> -->
+						<!-- 						</div> -->
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-4">
+				<form class="mb-30" action="">
+					<div class="input-group">
+						<input type="text" class="form-control border-0 p-4"
+							placeholder="Mã giảm giá">
+						<div class="input-group-append">
+							<button class="btn btn-primary">Áp dụng</button>
+						</div>
+					</div>
+				</form>
+				<h5 class="section-title position-relative text-uppercase mb-3">
+					<span class="bg-secondary pr-3">Tổng số đơn đặt hàng</span>
+				</h5>
+				<div class="bg-light p-30 mb-5">
+					<h6 class="mb-3">Các sản phẩm</h6>
+					<div ng-repeat="item in cart.items" class="border-bottom">
+						<div class="d-flex justify-content-between">
+							<div>{{item.id}}</div>
+							<p>{{item.name}}</p>
+							<p>{{item.qty}}</p>
+							<p>{{item.price| number :0}} VNĐ</p>
+						</div>
+					</div>
+
+					<div class="pt-2">
+						<div class="d-flex justify-content-between mt-2">
+							<h5>Tổng cộng</h5>
+
+							<div ng-model="order.total" >{{cart.amount}}</div>
+
+							<!-- 							<input ng-model="order.address" -->
+							<!-- 								class="form-control" type="text" id="address" value="${{cart.amount}}"> -->
+						</div>
+					</div>
+					<button ng-click="order.purchase()"
+						class="btn btn-block btn-primary font-weight-bold py-3">Đặt
+						hàng</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Checkout End -->
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-primary back-to-top"><i
+		class="fa fa-angle-double-up"></i></a>
+
+
+</body>
+
+</html>

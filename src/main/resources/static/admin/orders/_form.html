@@ -1,0 +1,62 @@
+<div class="wrapper" style="padding-top: 20px">
+	<div id="content-page" class="content-page">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="iq-card">
+						<div class="iq-card-header d-flex justify-content-between">
+							<div class="iq-header-title">
+								<h4 class="card-title">
+									<strong>Quản lý đơn hàng</strong>
+								</h4>
+							</div>
+						</div>
+						<div class="iq-card-body">
+							<div class="row">
+
+								<div class="col-sm-12">
+
+									<form>
+										<div class="form-group">
+											<label>Mã hóa đơn :</label> <input readonly="readonly" ng-model="form.id" type="number"
+												class="form-control">
+										</div>
+										<div class="form-group">
+											<label>Ngày :</label> <input readonly="readonly" ng-model="form.date" type="date"
+												class="form-control">
+										</div>
+										<div class="form-group">
+											<label>Username:</label> <input readonly="readonly" ng-model="form.account.username	" type="text"
+												class="form-control">
+										</div>
+										<div class="form-group">
+											<label>Địa chỉ :</label> <input readonly="readonly" ng-model="form.address"
+												type="text" class="form-control">
+										</div>
+										<div class="form-group">
+											<label>Trạng thái:</label>
+											<select ng-model="form.status" >
+											<option value="Đang giao">Đang giao</option>
+											<option value="Đã nhận">Đã nhận</option>
+											<option value="Đã thanh toán">Đã thanh toán</option>
+											<option value="Đã hủy">Đã hủy</option>
+											<option value="Chờ xử lý">Chờ xử lý</option>
+											</select>
+											
+										</div>
+										<button 
+										nclick="showSwal('capnhatproduct')"	ng-click="update()" class="btn btn-danger">Cập nhật</button>
+										<button ng-click="reset()" class="btn btn-danger">Trở
+											lại</button>
+
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
